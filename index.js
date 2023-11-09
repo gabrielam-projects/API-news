@@ -1,11 +1,10 @@
-const express = require("express");
-
-const app = express();
-//USER="marianadiazcastellanos"
-//PASSWORD="ndrWuzU8rlIRllNY"
+//Env manejador de variables de entorno (ubicacion antes de que se ocupe)
+require('dotenv').config()
 // Conectarse a MongoDB
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://marianadiazcastellanos:ndrWuzU8rlIRllNY@test.disdl6x.mongodb.net/?retryWrites=true&w=majority";
+// Construir la base de datos de la URL donde me voy a conectar
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@test.disdl6x.mongodb.net/?retryWrites=true&w=majority`;
+// Definir la base de datos y coleccion a la que me voy a conectar
 const dbName = "WorldNews";
 const collection = "News";
 
