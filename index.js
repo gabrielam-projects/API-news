@@ -1,12 +1,13 @@
 const express = require("express");
 
 const app = express();
-
+//USER="marianadiazcastellanos"
+//PASSWORD="ndrWuzU8rlIRllNY"
 // Conectarse a MongoDB
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://gabrielam3:BqmJODnBbaj7HDtm@cluster0.o41t2cm.mongodb.net/?retryWrites=true&w=majority";
-const dbName = "sample_apinews";
-const collection = "news";
+const uri = "mongodb+srv://marianadiazcastellanos:ndrWuzU8rlIRllNY@test.disdl6x.mongodb.net/?retryWrites=true&w=majority";
+const dbName = "WorldNews";
+const collection = "News";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
