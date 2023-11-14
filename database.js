@@ -19,12 +19,17 @@ async function run() {
     
     console.log("Conexión exitosa a MongoDB");
     const db = client.db(dbName);
-    const usuariosCollection = db.collection(collection);
-    const usuario = { 
+    const dataCollection = db.collection(collection);
+    const data = { 
       nombre: 'Ejemplo', 
       email: 'ejemplo@email.com' ,
       date: new Date};
-    await usuariosCollection.insertOne(usuario)
+    await dataCollection.insertOne(data)
+    const documents = await dataCollection.find().toArray();
+
+    // Imprimir los documentos en la consola
+    console.log('Documentos en la colección:');
+    console.log(documents);
 
   } finally {
     // Ensures that the client will close when you finish/error
