@@ -49,4 +49,4 @@ async function getWorldNews() {
     }
 }
 
-getWorldNews();
+module.exports = {getWorldNews}
