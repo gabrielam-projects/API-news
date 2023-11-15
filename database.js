@@ -1,3 +1,14 @@
+//objeto ejemplo
+const objeto = {
+    title: 'MyTitle',
+    description: 'Mydescription',
+    source: {
+        id: 'MyId',
+        name: 'MyName'
+    },
+    publishedAt: 'MypublishedAt'
+};
+
 //Env manejador de variables de entorno (ubicacion antes de que se ocupe)
 require('dotenv').config()
 // Conectarse a MongoDB
@@ -28,10 +39,18 @@ async function run() {
     const db = client.db(dbName);
     //conexion con la coleccion
     const usuariosCollection = db.collection(collection);
-    const usuario = { nombre: 'Ejemplo', email: 'ejemplo@email.com' };
     // CRUD -> Create  
-    await usuariosCollection.insertOne(usuario)
+    await usuariosCollection.insertOne(objeto); // INSERTAR NOTICIAS Como traer de API NEWS las noticias a 
 
+//       // Specify the query criteria
+//   const query = { key: 'value' };
+
+//   // Use the find method to retrieve documents that match the query
+//   collection.find(query).toArray(function(err, result) {
+//     if (err) throw err;
+const query = { title : 'MyTitle'}
+const ejemplo = await usuariosCollection.find(query).toArray()// FIND
+console.log(ejemplo);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();

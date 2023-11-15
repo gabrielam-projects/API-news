@@ -12,12 +12,6 @@ const newSchema = {
     publishedAt: ''
 };
 
-// getNews Function:
-// This function takes a URL as a parameter and returns the result of the fetch function, which is used to make an HTTP request.
-function getNews(url) {
-    return fetch(url);
-}
-
 // getWorldNews Async Function:
 // This function uses the await keyword to wait for the completion of the asynchronous fetch operation to get news data from the specified URL.
 async function getWorldNews() {
@@ -50,3 +44,6 @@ async function getWorldNews() {
 }
 
 module.exports = {getWorldNews}
+
+//mandar a mongo un esquema que se escriba en Mongo, e imprimir en consola lo que se escribio
+// Insert + find
