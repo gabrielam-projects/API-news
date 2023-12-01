@@ -5,9 +5,17 @@ const example = {
     title : 'example'
 }
 
+async function mainFunction() {
+  try {
+    const result = await getWorldNews();
+    console.log(result);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 
 //run(example).catch(console.dir);
-const noticia = getWorldNews();
+const noticia = mainFunction();
 
 console.log(noticia)
 
