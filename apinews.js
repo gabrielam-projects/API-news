@@ -1,35 +1,26 @@
 // NEWS API connection
 
-const newSchema = {
-    title: '',
-    description: '',
-    source: {
-        id: '',
-        name: ''
-    },
-    publishedAt: ''
-};
-
 async function getWorldNews() {
+    var newsArray = new Array();
     try {
         const response = await fetch('https://newsapi.org/v2/top-headlines?language=en&apiKey=c8bb7c8b03bf4b528b528265a036c9dd&pageSize=100');
         const data = await response.json();
         const newsList = await data.articles;
-
-         newsList.forEach(async (news) => {
-         newSchema.title = news.title || '';
-         newSchema.description = news.description || '';
-         newSchema.source.id = news.source.id || '';
-         newSchema.source.name = news.source.name || '';
-         newSchema.publishedAt = news.publishedAt || '';
-            
+        newsList.forEach(async (e) => {
+            const newSchema = {
+                title: e.title || '',
+                description: e.description || '',
+                source: {
+                    id: e.source.id || '',
+                    name: e.source.name || ''
+                },
+                publishedAt: e.publishedAt || ''
+            };
+            newsArray.push(newSchema);
         });
-        return newSchema;
-
+        return newsArray;
     } catch (error) {
         console.error('Ocurrio un error al obtener las noticias:', error.message);
     }
-
 }
-
 module.exports = {getWorldNews}

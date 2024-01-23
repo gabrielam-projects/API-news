@@ -1,13 +1,4 @@
-//objeto ejemplo
-const objeto = {
-    title: 'MyTitle',
-    description: 'Mydescription',
-    source: {
-        id: 'MyId',
-        name: 'MyName'
-    },
-    publishedAt: 'MypublishedAt'
-};
+
 
 //Env manejador de variables de entorno (ubicacion antes de que se ocupe)
 require('dotenv').config()
@@ -38,12 +29,13 @@ async function run(newSchema) {
   try {
     await client.connect();
     console.log("Conexión exitosa a MongoDB");
+    console.log(newSchema);
     // conexion con base de datos
     const db = client.db(dbName);
     //conexion con la coleccion
     const usuariosCollection = db.collection(collection);
     // CRUD -> Create  
-    await usuariosCollection.insertOne(newSchema); // INSERTAR NOTICIAS Como traer de API NEWS las noticias a 
+    await usuariosCollection.insertMany(newSchema, {ordered:false}); // INSERTAR NOTICIAS Como traer de API NEWS las noticias a 
 
 //--> FIND
 //       // Specify the query criteria
