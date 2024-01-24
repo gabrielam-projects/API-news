@@ -1,3 +1,4 @@
+
 const {run} = require("./database") // importacion de la funcion run 
 const {getWorldNews} = require("./apinews")//importamos el modulo para obtener las noticias del mundo
 
@@ -18,5 +19,3 @@ async function mainFunction() {
 const noticia = mainFunction();
 
 console.log(noticia)
-
-
