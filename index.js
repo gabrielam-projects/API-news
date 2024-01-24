@@ -1,3 +1,4 @@
+
 const {run} = require("./database") // importacion de la funcion run 
 const {getWorldNews} = require("./apinews")//importamos el modulo para obtener las noticias del mundo
 
@@ -19,4 +20,13 @@ const noticia = mainFunction();
 
 console.log(noticia)
 
+
+
+/*const express = require("express");
+const { run } = require('./database');
+
+
+const app = express();
+
+run().catch(console.dir);*/
 
