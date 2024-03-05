@@ -9,12 +9,6 @@ const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@test.disd
 // Definir la base de datos y coleccion a la que me voy a conectar
 const dbName = "WorldNews";
 const collection = "News";
-=======
-// Conectarse a MongoDB
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://gabrielam3:BqmJODnBbaj7HDtm@cluster0.o41t2cm.mongodb.net/?retryWrites=true&w=majority";
-const dbName = "sample_apinews";
-const collection = "news";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 /*const client = new MongoClient(uri, {
